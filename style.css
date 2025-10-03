@@ -169,7 +169,7 @@ input[type="radio"] {
 }
 .submitted-message {
 	position: absolute;
-	top: -10.01rem;
+	top: -8.8rem;
 	left: 50%;
 	transform: translateX(-50%);
 	display: flex;
