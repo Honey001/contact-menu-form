@@ -7,7 +7,7 @@ const radioError = radioContainer.lastElementChild;
 const checkboxContainer = myForm.querySelector(".checkbox-container");
 const checkbox = checkboxContainer.querySelector("input");
 const checkboxError = checkboxContainer.nextElementSibling;
-const alertMessage = document.getElementById("alert-message");
+const alertMessage = document.getElementById("messageBox");
 
 // INPUTS VALIDATION
 const inputs = myForm.querySelectorAll(".name");
@@ -37,7 +37,6 @@ textArea.addEventListener("input", () => {
 //EMAIL VALIDATION
 const invalidMail = email.nextElementSibling;
 const requiredMail = invalidMail.nextElementSibling;
-const emailInput = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 email.addEventListener("input", () => {
 	if (email.value.trim()) {
 		email.classList.remove("error-border");
@@ -79,7 +78,7 @@ myForm.addEventListener("submit", (evt) => {
 		textAreaError.style.display = "inline";
 		isTrue = false;
 	}
-
+	const emailInput = /^[a-zA-Z][a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
 	if (email.value.trim() === "") {
 		email.classList.add("error-border");
 		requiredMail.classList.add("error-text");
@@ -108,17 +107,10 @@ myForm.addEventListener("submit", (evt) => {
 	}
 
 	if (isTrue) {
-		alertMessage.offsetHeight;
 		alertMessage.classList.add("show");
-		alertMessage.style.display = "flex";
-		mainContainer.style.setProperty("margin", "10.5rem auto");
 		setTimeout(() => {
 			alertMessage.classList.remove("show");
-			setTimeout(() => {
-				alertMessage.style.display = "none";
-				mainContainer.style.setProperty("margin", "");
-			}, 400);
-		}, 3000);
+		},2000);
 	} else {
 		alertMessage.style.display = "none";
 		mainContainer.style.setProperty("margin", "");
