@@ -1,0 +1,238 @@
+@import url("https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
+/* || RESET */
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+button {
+	border: 0;
+	font: inherit;
+}
+input {
+	font: inherit;
+}
+.attribution {
+	font-size: 11px;
+	text-align: center;
+}
+.attribution a {
+	color: hsl(228, 45%, 44%);
+}
+.valid {
+	display: none;
+}
+
+/* || VARUABLES */
+:root {
+	/* COLORS */
+	/* HSL-PRIMARY-COLOR */
+	--HSL-PRI-GREEN: 148, 38%, 91%;
+	--HSL-PRI-DEEP-GREEN: 169, 82%, 27%;
+	--HSL-PRI-RED: 0, 66%, 54%;
+
+	/* HSL-NEUTRAL-COLOR */
+	--HSL-WHITE: 0, 0%, 100%;
+	--HSL-NEU-LIGHT-GRAY: 186, 15%, 59%;
+	--HSL-NEU-DARK-GRAY: 187, 24%, 22%;
+
+	/* PRIMARY-COLOR */
+	--PRI-GREEN: hsl(148, 38%, 91%);
+	--PRI-DEEP-GREEN: hsl(169, 82%, 27%);
+	--PRI-RED: hsl(0, 66%, 54%);
+	/* NEUTRAL-COLOR */
+	--NEU-WHITE: hsl(0, 0%, 100%);
+	--NEU-LIGHT-GRAY: hsl(186, 15%, 59%);
+	--NEU-DARK-GRAY: hsl(187, 24%, 22%);
+
+	/* BORDERS */
+	--BORDER: 0.1rem solid var(--PRI-DEEP-GREEN);
+	--BORDER-ERROR: 0.1rem solid var(--PRI-RED);
+	--BORDER-RADIUS: 0.5rem;
+
+	/* FONTS */
+	--FF: "Karla", sans-serif;
+	/* FONT-STYLE */
+	--FS-400: 1.125rem;
+	--FS-500: 1.25rem;
+	--FS-600: 1.5rem;
+	--FS-700: 1.75rem;
+	--FS-800: 2rem;
+	--FS-900: 3rem;
+	/* FONT-WEIGHTS */
+	--FW-REGULAR: 400;
+	--FW-BOLD: 600;
+}
+/* || GENERAL */
+body {
+	background-color: hsl(var(--HSL-PRI-GREEN), 0.6);
+	min-height: 100vh;
+}
+.container {
+	position: relative;
+	font-family: var(--FF);
+	background-color: var(--NEU-WHITE);
+	padding: 1.5rem;
+	border-radius: var(--BORDER-RADIUS);
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	width: 15rem;
+	margin: 3rem auto;
+	color: hsl(var(--HSL-NEU-DARK-GRAY), 1);
+}
+.form {
+	display: flex;
+	justify-content: center;
+	flex-flow: column wrap;
+	gap: 1.5rem;
+	margin-block: 1.5rem;
+}
+.form-name-container {
+	display: flex;
+	flex-flow: column nowrap;
+	gap: 1rem;
+	align-items: center;
+}
+.form-name {
+	display: flex;
+	flex-flow: column wrap;
+	gap: 0.3rem;
+	width: 100%;
+}
+label {
+	font-size: var(--FS-400);
+}
+label::after {
+	content: "*";
+	padding: 0.3rem;
+	color: var(--PRI-DEEP-GREEN);
+}
+.form-query-container {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	width: 100%;
+}
+.radio-check-container {
+	display: flex;
+	flex-flow: column nowrap;
+	gap: 1rem;
+	width: 100%;
+	margin-block: 0.5rem;
+	margin-block-end: 0;
+}
+.radio-check {
+	display: flex;
+	gap: 0.7rem;
+	flex-direction: row;
+	border: var(--BORDER);
+	padding-block: 0.5rem;
+	padding-inline-start: 1rem;
+	flex: 1;
+	align-items: center;
+	border-radius: var(--BORDER-RADIUS);
+}
+.checkbox-container {
+	display: flex;
+	flex-flow: row nowrap;
+	gap: 1rem;
+	align-items: center;
+}
+.button {
+	border: var(--BORDER);
+	padding-block: 1rem;
+	padding-inline-start: 0.5rem;
+	width: 100%;
+	background-color: var(--PRI-DEEP-GREEN);
+	color: var(--NEU-WHITE);
+	border-radius: var(--BORDER-RADIUS);
+	cursor: pointer;
+}
+.name,
+.email,
+.message {
+	padding-block: 0.5rem;
+	padding-inline-start: 1rem;
+	width: 100%;
+	border-radius: var(--BORDER-RADIUS);
+	border: var(--BORDER);
+	outline: none;
+}
+textarea {
+	resize: none;
+	height: 10rem;
+}
+input[type="checkbox"],
+input[type="radio"] {
+	accent-color: var(--NEU-DARK-GRAY);
+}
+.submitted-message {
+	position: absolute;
+	top: -10.01rem;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	display: none;
+	flex-direction: column;
+	justify-content: flex-start;
+	gap: 1rem;
+	background-color: var(--NEU-DARK-GRAY);
+	color: hsl(var(--HSL-WHITE), 0.9);
+	padding: 2rem;
+	border-radius: 1rem;
+	width: 100%;
+	opacity: 0;
+	transition: opacity .4s ease-in-out;
+}
+.show {
+	opacity: 1;
+}
+
+h4::before {
+	content: "✓ ";
+	color: var(--NEU-WHITE);
+	padding: 0.5rem;
+}
+.error-border {
+	border: var(--BORDER-ERROR);
+}
+.error-text {
+	color: var(--PRI-RED);
+}
+small {
+	display: none;
+}
+
+/* || MEDIA QUERIES */
+@media (min-width: 38rem) {
+	.container {
+		padding: 2rem;
+		width: 50rem;
+		margin: 5rem auto;
+	}
+	.form-name-container {
+		flex-flow: row nowrap;
+	}
+	.radio-check-container {
+		flex-flow: row nowrap;
+	}
+	.radio-check {
+		padding-inline-start: 0.5rem;
+	}
+	.name,
+	.email,
+	.message {
+		padding-inline-start: 0.5rem;
+	}
+	textarea {
+		height: 5rem;
+	}
+	.button {
+		padding-block: 0.5rem;
+	}
+	.submitted-message {
+		top: -7.5rem;
+		width: 70%;
+	}
+}
