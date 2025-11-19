@@ -159,6 +159,13 @@ label::after {
 	border: var(--BORDER);
 	outline: none;
 }
+.name:focus-visible,
+.email:focus-visible,
+.message:focus-visible,
+input[type="checkbox"]:focus-visible,
+input[type="radio"]:focus-visible {
+	border: 2px solid var(--NEU-DARK-GRAY);
+}
 textarea {
 	resize: none;
 	height: 10rem;

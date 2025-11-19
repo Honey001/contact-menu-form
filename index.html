@@ -34,73 +34,76 @@
 				method="post"
 				id="myForm"
 				class="form">
-				<div class="form-name-container">
+				<div class="form-name-container" role="form-name-group">
 					<p class="form-name">
 						<label for="firstName">First Name</label>
 						<input
 							type="text"
-							name="firstName"
-							class="name" />
+							id="firstName"
+							name="name"
+							class="name" aria-describedby="errorText" autocomplete="given-name" placeholder="John"/>
 						<small class="errorText">This field is required</small>
 					</p>
 					<p class="form-name">
 						<label for="lastName">Last Name</label>
 						<input
 							type="text"
-							name="lastName"
-							class="name" />
+							id="lastName"
+							name="name"
+							class="name" aria-describedby="errorText" autocomplete="family-name" placeholder="Doe"/>
 						<small class="errorText">This field is required</small>
 					</p>
 				</div>
 
-				<div class="form-name">
+				<div class="form-name" role="form-email">
 					<label for="email">Email Address</label>
 					<input
-						type="name"
+					id="email"
+						type="email"
 						name="email"
 						class="email"
-						placeholder="mail@jack.com" />
+						placeholder="mail@jack.com" aria-describedby="error" autocomplete="email"/>
 					<small class="error"
 						>Please enter a valid email address</small
 					>
 					<small class="error">This field is required</small>
 				</div>
 
-				<div class="form-query-container">
+				<div class="form-query-container" >
 					<label for="query">Query Type</label>
-					<div class="radio-check-container">
-						<div class="radio-check">
+					<div class="radio-check-container" role="radiogroup">
+						<div class="radio-check" role="radio">
 							<input
 								type="radio"
-								name="query" />
-							<p>General Enquiry</p>
+								name="query" aria-describedby="radio-content error"/>
+							<p id="radio-content">General Enquiry</p>
 						</div>
 
-						<div class="radio-check">
+						<div class="radio-check" role="radio">
 							<input
 								type="radio"
-								name="query" />
-							<p>Support Enquiry</p>
+								name="query" aria-describedby="radio-content error"/>
+							<p id="radio-content">Support Enquiry</p>
 						</div>
 					</div>
 					<small class="error">Please select a query type</small>
 				</div>
 
-				<div class="form-name">
+				<div class="form-name" role="contentinfo">
 					<label for="message">Message</label>
 					<textarea
 						name="message"
 						id="message"
-						class="message"></textarea>
+						class="message" aria-describedby="errorText" autocomplete="on" placeholder="Write your message..."></textarea>
 					<small class="errorText">This field is required</small>
 				</div>
 
-				<div class="form-name">
+				<div class="form-name" role="checkbox">
 					<div class="checkbox-container">
 						<input
 							type="checkbox"
 							name="checkbox"
-							id="checkbox" />
+							id="checkbox" aria-describedby="error" aria-required="true"/>
 						<label for="checkbox">
 							I consent to being contacted by the team
 						</label>
