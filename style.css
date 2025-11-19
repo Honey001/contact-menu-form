@@ -114,6 +114,9 @@ label::after {
 	gap: 0.5rem;
 	width: 100%;
 }
+.radio-check-container label::after {
+	content: "";
+}
 .radio-check-container {
 	display: flex;
 	flex-flow: column nowrap;
